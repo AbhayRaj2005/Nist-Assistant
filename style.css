@@ -1,0 +1,187 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #000;
+    color: #ffffff;
+    transition: background-image 1.5s ease-in-out;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Hero Video Section */
+.video-background {
+    position: relative;
+    height: 60vh; 
+    min-height: 300px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+}
+
+/* ✅ FIXED VIDEO SCALING */
+#player, #sports-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100%;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none; 
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.overlay-content { padding: 20px; text-align: center; }
+
+.overlay-content h1 {
+    font-size: 2.5rem; 
+    color: #00d2ff;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
+    font-weight: 900;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #00e6ff;
+    margin: 60px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* Gallery */
+.gallery-container { max-width: 1200px; margin: 0 auto 80px; padding: 0 20px; }
+
+.gallery-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+}
+
+.building-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #00d2ff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.gallery-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s ease;
+}
+
+.gallery-item img { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+    opacity: 0.8; 
+}
+
+/* Sports Section */
+.sports-highlight {
+    position: relative;
+    height: 40vh;
+    margin: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 210, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+footer { 
+    text-align: center; 
+    padding: 50px 20px; 
+    color: #666; 
+    font-size: 0.8rem; 
+}
+
+/* MEDIA */
+@media (min-width: 768px) {
+    .video-background { height: 80vh; }
+    .overlay-content h1 { font-size: 5rem; letter-spacing: 12px; }
+    .section-title { font-size: 2.5rem; letter-spacing: 8px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .sports-highlight { height: 60vh; }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* MOBILE FIX */
+@media (max-width: 767px) {
+
+    /* FIX background scroll issue */
+    body {
+        background-attachment: scroll;
+    }
+
+    .video-background { height: 55vh; }
+
+    /* FIX video zoom */
+    #player, #sports-player {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay-content h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+        line-height: 1.2;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        margin: 40px 0 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* FIX image fit */
+    .gallery-item img {
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    .gallery-container {
+        padding: 0 12px 40px;
+    }
+}
+
+/* TABLET FIX */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .overlay-content h1 {
+        font-size: 3.5rem;
+    }
+}
